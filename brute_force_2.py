@@ -1,5 +1,6 @@
-#Lab: Blind SQL injection with conditional errors
-# task : same as previous lab , but we have to use blind sql injection with base error of orancle sql  
+# Lab: Blind SQL injection with conditional errors
+# task : same as previous lab , but we have to use blind sql injection with base error of orancle sql
+# code solve get all without runing burpsuite
 import requests
 import string
 
@@ -22,7 +23,7 @@ headers = {
     "Sec-Ch-Ua": '"Chromium";v="113", "Not-A.Brand";v="24"',
     "Sec-Ch-Ua-Mobile": "?0",
           ...
-          put other http header in u request to the "/" (without cookies) in here
+          put other http header in u request to the "/" (without cookies) in here (u can get it from "http history" in the "proxy" tab in the burpsuite program)
           ...
     "Accept-Language": "en-US,en;q=0.9"
 }
