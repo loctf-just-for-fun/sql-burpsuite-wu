@@ -23,7 +23,7 @@ headers = {
     "Sec-Ch-Ua-Mobile": "?0",
     "Sec-Ch-Ua-Platform": '"Linux"',
           ...
-          put other http header in u request to the "/" (without cookies) in here
+          put other http header in u request to the "/" (without cookies) in here (u can get it from "http history" in the "proxy" tab in the burpsuite program)
           ...
     "Accept-Language": "en-US,en;q=0.9"
 }
